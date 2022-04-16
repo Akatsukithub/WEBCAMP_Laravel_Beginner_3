@@ -9,6 +9,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Admin\AuthController as AdminAuthController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
+use App\Http\Controllers\CompletedTaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,8 +44,8 @@ Route::middleware(['auth'])->group(function () {
 });
 
 //ユーザー登録
-Route::get('/user/register', [UserController::class, 'index']);
-Route::post('/user/register', [UserController::class, 'register']);
+Route::get('/user/register', [UserController::class, 'index'])->name('user.register.index');
+Route::post('/user/register', [UserController::class, 'register'])->name('user.register');
 
 // 管理画面
 Route::prefix('/admin')->group(function () {
